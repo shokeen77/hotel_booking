@@ -8,7 +8,8 @@ const HotelCard = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [dark, darkMode] = useState([]);
-
+  const [showDetail, setShowDetail] = useState(false);
+  const [tempSlug,setTempSlug] = useState("");
 
   const fetchApi = async () => {
     try {
@@ -26,27 +27,37 @@ const HotelCard = () => {
     fetchApi();
   }, []);
 
-
+ const handleOnClick = (slug) => {
+    setShowDetail(true);
+    setTempSlug(slug);
+  }
 
 
 
   return (
-    <div className="main">
-      {loading ? (
-        <div className="loader-container">
-          <div className="loader"></div>
-        </div>
-      ) : (
-        <ul className="cards">
-          {cards.map((card, index) => (
-            <li className="cards_item" key={index} >
+   <>
+   {!showDetail ? (
+     <div className="main">
+     {loading ? (
+       <div className="loader-container">
+         <div className="loader"></div>
+       </div>
+     ) : (
+       <ul className="cards">
+         {cards.map((card, index) => (
+           <li onClick={()=>handleOnClick(card.slug)} className="cards_item" key={index} >
 
-              <Card data={card} />
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+             <Card data={card} />
+           </li>
+         ))}
+       </ul>
+     )}
+   </div>
+   ): (
+    <ImageGrid slug = {tempSlug} />
+   )
+   }
+   </>
   );
 };
 

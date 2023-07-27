@@ -16,8 +16,8 @@ function App() {
   return (
     <div className="App">
     <NavBar></NavBar>  
-   {/* <HotelCard></HotelCard> */}
-    <ImageGrid slug = "zion-kolob-canyon-farm-stay-cows-goats-alpaca"/>
+   <HotelCard></HotelCard>
+    {/* <ImageGrid slug = "zion-kolob-canyon-farm-stay-cows-goats-alpaca"/> */}
      {/* <Form></Form>  */}
     {/* <BookingHistory></BookingHistory> */}
     </div>
