@@ -11,7 +11,7 @@ const HotelCard = () => {
   const [showDetail, setShowDetail] = useState(false);
   const [tempSlug,setTempSlug] = useState("");
 
-  const fetchApi = async () => {
+  const cardFunction = async () => {
     try {
       let result = await fetch('https://hotels-api-4ltr.onrender.com/api/hotels')
       let jsonData = await result.json();
@@ -24,7 +24,7 @@ const HotelCard = () => {
   }
 
   useEffect(() => {
-    fetchApi();
+    cardFunction();
   }, []);
 
  const handleOnClick = (slug) => {

@@ -10,7 +10,7 @@ export default function ImageGrid(props) {
 
   const [apiData, setApiData] = useState([]);
   const [apiLoading, setLoadingApi] = useState(true);
-  async function fetchApi() {
+  async function imageCollection() {
     try {
       const result = await fetch(`https://hotels-api-4ltr.onrender.com/api/hotels/${props.slug}`);
       let jsonData = await result.json();
@@ -24,7 +24,7 @@ export default function ImageGrid(props) {
   }
 
   useEffect(() => {
-    fetchApi();
+    imageCollection();
   }, [])
   return (
     <div className="main">
