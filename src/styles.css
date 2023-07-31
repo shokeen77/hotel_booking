@@ -621,7 +621,9 @@ h1.hotel-itenary {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
-}      
+}    
+
+
 
 .itenary-heading-aside{
   background: #fffefeda;
