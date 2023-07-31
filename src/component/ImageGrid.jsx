@@ -60,9 +60,15 @@ export default function ImageGrid(props) {
               <div className="itenary timeline-content">
                 <h1 className='hotel-itenary'>{apiData.aboutThePlace}</h1>
               </div>
+
+
+
+
+
+
                 {/* TimeLine-2 */}
                 
-              <div className="timeline-empty">
+              <div className="timeline-empty-second">
                 <div className="itenary timeline-content">
                   <h1 className='hotel-itenary'>  
                   <ul>
