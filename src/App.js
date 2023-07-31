@@ -3,28 +3,22 @@
 
 import NavBar from './component/NavBar';
 import HotelCard from './component/HotelCard';
-import ImageGrid from './component/ImageGrid';
-import Form from './component/Form';
-import BookingHistory from './component/BookingHistory';
-
-import logo from './logo.svg';
 import "./styles.css"
-import { Card } from '@mui/material';
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
 function App() {
   return (
     <div className="App">
-    <NavBar></NavBar>  
-   <HotelCard></HotelCard>
-    {/* <ImageGrid slug = "zion-kolob-canyon-farm-stay-cows-goats-alpaca"/> */}
-     {/* <Form></Form>  */}
-    {/* <BookingHistory></BookingHistory> */}
-    {/* <Routes>
-      
-    </Routes> */}
+      <NavBar></NavBar>
+      <HotelCard></HotelCard>
+     
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Form />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-   
+
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageMatrix from './ImageMatrix';
-import ImageText from './ImageText';
+
 
 
 

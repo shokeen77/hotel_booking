@@ -7,7 +7,7 @@ import ImageGrid from './ImageGrid';
 const HotelCard = () => {
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [dark, darkMode] = useState([]);
+  // const [dark, darkMode] = useState([]);
   const [showDetail, setShowDetail] = useState(false);
   const [tempSlug,setTempSlug] = useState("");
 

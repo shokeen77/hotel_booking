@@ -6,6 +6,7 @@ function ImageMatrix(props) {
         <ImageListItem key={props.id}>
             <img
                 src={`${props.img}`}
+                alt='Image'
                 srcSet={`${props.img}`}
                 loading="lazy"
             />
