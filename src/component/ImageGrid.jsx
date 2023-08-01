@@ -25,7 +25,7 @@ export default function ImageGrid(props) {
     }
 
   }imageCollection();
-  }, []);
+  },);
   return (
     <div className="main">
       {apiLoading ? (
