@@ -24,8 +24,7 @@ export default function ImageGrid(props) {
       console.log(error);
     }
 
-  };
-    imageCollection();
+  }imageCollection();
   }, []);
   return (
     <div className="main">
