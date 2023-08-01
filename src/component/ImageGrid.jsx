@@ -13,19 +13,20 @@ export default function ImageGrid(props) {
  
 
   useEffect(() => {
-    async function imageCollection() {
-      try {
-        const result = await fetch(`https://hotels-api-4ltr.onrender.com/api/hotels/${props.slug}`);
-        let jsonData = await result.json();
-        setApiData(jsonData);
-        setLoadingApi(false);
-      }
-      catch (error) {
-        console.log(error);
-      }
-  
-    }imageCollection();
-  }, [])
+     async function imageCollection() {
+    try {
+      const result = await fetch(`https://hotels-api-4ltr.onrender.com/api/hotels/${props.slug}`);
+      let jsonData = await result.json();
+      setApiData(jsonData);
+      setLoadingApi(false);
+    }
+    catch (error) {
+      console.log(error);
+    }
+
+  };
+    imageCollection();
+  }, []);
   return (
     <div className="main">
       {apiLoading ? (
