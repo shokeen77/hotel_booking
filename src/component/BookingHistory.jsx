@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const BookingHistory = () => {
-  
-  const [tableData, setTableData] = useState([]);
-
- 
-  useEffect(() => {
+const [tableData, setTableData] = useState([]);
+useEffect(() => {
   
     const data = [
       ["Cell 1", "Cell 2", "Cell 3", "Cell 4", "Cell 5" , "Cell 5"],
@@ -19,6 +16,7 @@ const BookingHistory = () => {
     setTableData(data);
   }, []);
 
+  
   
   return (
     
