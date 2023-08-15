@@ -10,7 +10,7 @@ function Card(props) {
       <h2 className="card_title">{props.data.name}</h2>
       <p className="card_text">${props.data.pricePerNight} night</p>
       
-      <button className="noselect">Read More</button>
+      {/* <button className="noselect">Read More</button> */}
     </div>
   </div>
   )

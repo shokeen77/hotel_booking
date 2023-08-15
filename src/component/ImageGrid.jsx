@@ -68,7 +68,7 @@ function ImageGrid(props) {
               </Typography>
             </Box> */}
             {/* {apiData.map(item => { */}
-              <BookingModal pricePerNight={apiData.pricePerNight}></BookingModal>
+              <BookingModal apiData={apiData}></BookingModal>
             {/* })} */}
 
           </Modal>

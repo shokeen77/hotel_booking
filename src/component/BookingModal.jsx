@@ -8,35 +8,25 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
+import NativeSelect from '@mui/material/NativeSelect';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
 function BookingModal(props) {
-  //   const [isModalOpen, setIsModalOpen] = useState(open);
-  useEffect(() => {
-    // console.log("hello world");
-    console.log(props.pricePerNight);
-  })
+  const [checkin, setCheckIn] = useState("");
+  const [checkout, setCheckOut] = useState("");
+  const [numberofguests, setnumberOfGuests] = useState("");
+  const [dateDifference, setDateDifference] = useState(0);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
   const MenuProps = {
     PaperProps: {
       style: {
-
         width: 250,
       },
     },
   };
-  const names = [
-
-  ];
-
-  const handleOnClick = (slug) => {
-
-  }
-
   const [personName, setPersonName] = React.useState([]);
 
   const handleChange = (event) => {
@@ -44,10 +34,37 @@ function BookingModal(props) {
       target: { value },
     } = event;
     setPersonName(
-      // On autofill we get a stringified value.
+
       typeof value === 'string' ? value.split(',') : value,
     );
   };
+
+     const details = JSON.stringify({
+    hotelName: props.apiData.name,
+    hotelAddress: props.apiData.address,
+    numberOfGuests: numberofguests,
+    price: props.apiData.pricePerNight
+  })
+
+  const submitButton = async () => {
+    if (checkin && checkout) {
+      const diffTime = Math.abs(checkin - checkout);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      console.log(diffTime + " milliseconds");
+      console.log(diffDays + " days");
+    }
+
+    
+    console.log("details", details);
+    fetch(
+      "https://hotel-booking-app-15006-default-rtdb.firebaseio.com/hotel.json",
+      {
+        method: "POST",
+        body: details
+      }
+    )
+
+  }
 
   return (
     <>
@@ -55,33 +72,24 @@ function BookingModal(props) {
       <Box>
         <div className="booking-modal-container">
           <div className="booking-modal-content">
-            <FormControl className='form-select'>
-              <InputLabel id="demo-multiple-chip-label">Number of Guests</InputLabel>
-              <Select
-                labelId="demo-multiple-chip-label"
-
-                value={personName}
-                onChange={handleChange}
-                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                renderValue={(selected) => (
-                  <Box className="drop-down" >
-                    {selected.map((value) => (
-                      <Chip key={value} label={value} />
-                    ))}
-                  </Box>
-                )}
-
+            <h2>${props.apiData.pricePerNight}/Night</h2>
+            <FormControl fullWidth>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                Number of Guests
+              </InputLabel>
+              <NativeSelect
+                defaultValue={0}
+                inputProps={{
+                  name: 'number of guests',
+                  id: 'uncontrolled-native',
+                }}
               >
-                {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-
-                  >
-                    {name}
-                  </MenuItem>
-                ))}
-              </Select>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </NativeSelect>
             </FormControl>
           </div>
 
@@ -90,10 +98,12 @@ function BookingModal(props) {
           {/********************  Date---------Picker *********************/}
 
           <div>
+
             <div className='box-modal'>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateRangePicker localeText={{ start: 'Check-in', end: 'Check-out' }} />
+                <DateRangePicker className='date-range' localeText={{ start: 'Check-in', end: 'Check-out' }} />
               </LocalizationProvider>
+              <button onClick={submitButton} className='center'>Reserve</button>
             </div>
           </div>
         </div>
