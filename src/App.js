@@ -17,10 +17,11 @@ function App() {
     <div className="App">
       
       <NavBar></NavBar>
-      <HotelCard></HotelCard>
+      {/* <HotelCard></HotelCard> */}
       <BrowserRouter>
         <Routes>
           <Route exact path='/' element = {<HotelCard/>}></Route>
+         
           <Route exact path='/bookinghistory'  element={<BookingHistory/>}> </Route>
         <Route exact path='/form' element = {<Form/>} ></Route>
       </Routes>

@@ -847,3 +847,19 @@ h1.hotel-itenary {
 .date-range {
   padding: 20px 20px 20px 20px;
 }
+
+span.total-modal {
+  float: right;
+  margin: 0px 10px;
+}
+
+button.center {
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  padding: 15px 20px;
+}
+
+.detail-modal{
+  margin: 0px 10px;
+}
