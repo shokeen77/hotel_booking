@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
-
 const Form = () => {
   const [activeTab, setActiveTab] = useState('sign-in');
   const [signInFormData, setSignInFormData] = useState({
@@ -31,13 +29,28 @@ const Form = () => {
       [name]: value,
     }));
   };
+  const [isEmailUnique, setIsEmailUnique] = useState(true); // New state
 
 
+//username and password is valid or not
 
-  useEffect(() => {
-    
-  
-  }, []); 
+useEffect(() => {
+  // Email is Unqiue or not
+  const isUnique = true; 
+
+  setIsEmailUnique(isUnique);
+}, [signUpFormData.signUpEmail]);
+
+useEffect(() => {
+  const isSignInDataValid =
+    signInFormData.signInUsername && signInFormData.signInPassword;
+
+  if (isSignInDataValid) {
+    console.log('Sign In data is valid');
+  } else {
+    console.log('Sign In data is invalid');
+  }
+}, [signInFormData]);
 
   return (
     <div className="login-wrap">
@@ -184,3 +197,7 @@ const Form = () => {
 };
 
 export default Form;
+
+
+
+
